@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: sopes2
+  labels:
+    app: backend-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend-deployment
+  template:
+    metadata:
+      labels:
+        app: backend-deployment
+    spec:
+      containers:
+      - name: backend-deployment
+        image: docker.io/oscarllamas6/backend-sopes2:v1
+        env:
+          - name: MONGO_HOST
+            value: <public-vm-ip>
+          - name: MONGO_PORT
+            value: "27017"
+          - name: MONGO_USER
+            value: "sopes2"
+          - name: MONGO_PASS
+            value: "somoslaonda12"
+          - name: MONGO_DB
+            value: "sopes2"
+          - name: MONGO_COL
+            value: "books"
+        ports:
+        - containerPort: 3000
