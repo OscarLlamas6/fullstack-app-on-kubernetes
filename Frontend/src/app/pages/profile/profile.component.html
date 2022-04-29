@@ -1,0 +1,91 @@
+<div class="wrapper">
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="owner">
+                <div class="avatar">
+                    <img src="./assets/img/faces/joe-gardner-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                    <div class="card card-register">
+                        <h3 class="title"><b>REGISTRO</b></h3>
+                        <div class="social-line text-center">
+                            <a class="btn btn-neutral btn-facebook btn-just-icon">
+                                <i class="fa fa-book"></i>
+                            </a>
+                        </div>
+                        <form class="register-form">
+
+                            <label>Titulo</label>
+                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <input type="text" class="form-control" placeholder="Titulo" (focus)="focus=true" (blur)="focus=false" >
+                            </div>
+
+                            <label>Autor</label>
+                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                <input type="text" class="form-control" placeholder="Autor" (focus)="focus1=true" (blur)="focus1=false" >
+                            </div>
+
+                            <label>Año de publicacion</label>
+                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <input type="text" class="form-control" placeholder="Año" (focus)="focus=true" (blur)="focus=false" >
+                            </div>
+
+                            <label>Cantidad de páginas</label>
+                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                  <input type="text" class="form-control" placeholder="Páginas" (focus)="focus1=true" (blur)="focus1=false" >
+                            </div>
+
+                            <label>Género</label>
+                            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                <input type="text" class="form-control" placeholder="Género" (focus)="focus=true" (blur)="focus=false" >
+                            </div>
+
+                            <button class="btn btn-danger btn-block btn-round">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <ngb-tabset [justify]="'center'">
+                        <ngb-tab title="Libros Registrados">
+                            <ng-template ngbTabContent >
+                                <div class="row following" id="follows">
+                                    <div class="col-md-6 ml-auto mr-auto">
+                                        <ul class="list-unstyled follows">
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+                                                        <img src="./assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                    </div>
+                                                    <div class="col-md-7 col-sm-4 ml-auto d-flex justify-content-start">
+                                                        <h6>
+                                                            Orgullo y Prejuicio<br/>
+                                                            <small>Jane Austen  </small>
+                                                            <span class="label label-default">1985</span>
+                                                        </h6>
+                                                    </div>
+                                                    <div class="col-md-3 col-sm-2 ml-auto mr-auto" style="border-radius: 8px;padding: 10px;">
+                                                        Romance<br>
+                                                       974 pag.<br>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <hr />
+                                        </ul>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ngb-tab>
+                    </ngb-tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
