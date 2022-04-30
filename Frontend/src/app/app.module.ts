@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
@@ -19,6 +21,7 @@ import { ExamplesModule } from './pages/examples.module';
     FooterComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     NgbModule,
     FormsModule,

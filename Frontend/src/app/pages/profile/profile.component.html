@@ -22,30 +22,30 @@
 
                             <label>Titulo</label>
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                                <input type="text" class="form-control" placeholder="Titulo" (focus)="focus=true" (blur)="focus=false" >
+                                <input  [(ngModel)]= "book.title" name="title" type="text" class="form-control" placeholder="Titulo" (focus)="focus=true" (blur)="focus=false" >
                             </div>
 
                             <label>Autor</label>
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
-                                <input type="text" class="form-control" placeholder="Autor" (focus)="focus1=true" (blur)="focus1=false" >
+                                <input [(ngModel)]= "book.author"  name="author" type="text" class="form-control" placeholder="Autor" (focus)="focus1=true" (blur)="focus1=false" >
                             </div>
 
                             <label>Año de publicacion</label>
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                                <input type="text" class="form-control" placeholder="Año" (focus)="focus=true" (blur)="focus=false" >
+                                <input [(ngModel)]= "book.year" name="year" type="text" class="form-control" placeholder="Año" (focus)="focus=true" (blur)="focus=false" >
                             </div>
 
                             <label>Cantidad de páginas</label>
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
-                                  <input type="text" class="form-control" placeholder="Páginas" (focus)="focus1=true" (blur)="focus1=false" >
+                                  <input [(ngModel)]= "book.pages" name="pages" type="text" class="form-control" placeholder="Páginas" (focus)="focus1=true" (blur)="focus1=false" >
                             </div>
 
                             <label>Género</label>
                             <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-                                <input type="text" class="form-control" placeholder="Género" (focus)="focus=true" (blur)="focus=false" >
+                                <input [(ngModel)]= "book.genre" name="genre" type="text" class="form-control" placeholder="Género" (focus)="focus=true" (blur)="focus=false" >
                             </div>
 
-                            <button class="btn btn-danger btn-block btn-round">Register</button>
+                            <button  (click)="saveBook()" class="btn btn-danger btn-block btn-round">Register</button>
                         </form>
                     </div>
                 </div>
@@ -59,21 +59,21 @@
                                 <div class="row following" id="follows">
                                     <div class="col-md-6 ml-auto mr-auto">
                                         <ul class="list-unstyled follows">
-                                            <li>
+                                            <li *ngFor="let book of books">
                                                 <div class="row">
                                                     <div class="col-md-2 col-sm-2 ml-auto mr-auto">
                                                         <img src="./assets/img/faces/ayo-ogunseinde-2.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                                     </div>
                                                     <div class="col-md-7 col-sm-4 ml-auto d-flex justify-content-start">
                                                         <h6>
-                                                            Orgullo y Prejuicio<br/>
-                                                            <small>Jane Austen  </small>
-                                                            <span class="label label-default">1985</span>
+                                                            {{book.title}}<br/>
+                                                            <small>{{book.author}}  </small>
+                                                            <span class="label label-default">{{book.year}}</span>
                                                         </h6>
                                                     </div>
                                                     <div class="col-md-3 col-sm-2 ml-auto mr-auto" style="border-radius: 8px;padding: 10px;">
-                                                        Romance<br>
-                                                       974 pag.<br>
+                                                        {{book.genre}}<br>
+                                                       {{book.pages}} pag.<br>
                                                     </div>
                                                 </div>
                                             </li>
