@@ -90,5 +90,56 @@ Please enter numeric choice or text value (must exactly match list item): 2
 > kubectl rollout undo deployments/frontend-deployment
 ```
 
+## Prometheus y Grafana (Linkerd)
 
+- Comandos para instalar y setear Linkerd
+
+```bash
+
+# Instalando Helm
+> sudo curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+> sudo chmod 700 get_helm.sh
+> sudo bash ./get_helm.sh
+
+# Instalando Ingress-Controller
+> kubectl create ns nginx-ingress
+> helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx 
+> helm repo update 
+> helm install nginx-ingress ingress-nginx/ingress-nginx -n nginx-ingress
+
+# Obtener IP publica del ingress-controller
+> kubectl get services -n nginx-ingress
+
+# Instalando Docker (Opcional para construir imagenes)
+> sudo apt-get install docker.io
+> sudo usermod -aG docker developer
+
+# Desintalar kubectl (por si es necesario hacer downgrade)
+# Si se instalo desde curl
+> sudo rm /usr/local/bin/kubectl
+# Si se instalo como un componente de gcloud
+> gcloud components remove kubectl
+# Si se instalo con snap
+> snap remove kubectl
+# Si se desea borrar la configuracion anterior, borrar config en ~/.kube
+
+# Instalando version especifica de kubectl
+> curl -LO https://dl.k8s.io/release/v1.20.0/bin/linux/amd64/kubectl
+> sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+# Instalando Linkerd
+> curl -fsL https://run.linkerd.io/install | sh
+> nano ~/.bashrc <- export PATH=$PATH:/home/YOUR_USER/.linkerd2/bin
+> linkerd check
+> linkerd install | kubectl apply -f -
+> linkerd check
+> linkerd viz install | kubectl apply -f -
+> linkerd check
+
+# Abrir dashboard de Linkerd
+> linkerd viz dashboard
+
+# Inyectando Linkerd en Ingress-Controller
+> kubectl get deployment nginx-ingress-ingress-nginx-controller -n nginx-ingress  -o yaml | linkerd inject - | kubectl apply -f -
+```
 
