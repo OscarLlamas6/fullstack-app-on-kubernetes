@@ -7,6 +7,12 @@ metadata:
     app: backend-deployment
 spec:
   replicas: 3
+  minReadySeconds: 20
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   selector:
     matchLabels:
       app: backend-deployment
@@ -18,9 +24,10 @@ spec:
       containers:
       - name: backend-deployment
         image: docker.io/oscarllamas6/backend-sopes2:v1
+        imagePullPolicy: Always
         env:
           - name: MONGO_HOST
-            value: <public-vm-ip>
+            value: <vm-ip>
           - name: MONGO_PORT
             value: "27017"
           - name: MONGO_USER
