@@ -4,5 +4,5 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  url: 'http://34.135.215.90:3000/',
+  url: '/backend-service/',
 };
