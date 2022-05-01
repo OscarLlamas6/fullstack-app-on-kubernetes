@@ -18,6 +18,8 @@ spec:
       app: frontend-deployment
   template:
     metadata:
+      annotations:
+        linkerd.io/inject: enabled
       labels:
         app: frontend-deployment
     spec:
